@@ -1,0 +1,25 @@
+    <h1 class="text-center">Contact</h1>
+    <p-card>
+    <form [formGroup]="formGroup">
+        <div class="form-field" >
+            <label>Email:
+                <input pInputText class="form-control" type="email" formControlName="email">
+            </label>
+        </div>
+        <br>
+        <div class="form-field">
+            <label class="center-block">Message:
+                <textarea pInputTextarea class="form-control" type="text" formControlName="message" maxlength="300" rows="5" cols="50"></textarea>
+            </label>
+        </div>
+    </form>
+    <p-button label="Submit" severity="primary" [disabled]="formGroup.invalid" (onClick)="submit()"/>
+    </p-card>
+    <ng-template #myDialog>
+        <mat-dialog-content>
+            <p>Demande de contact envoyée avec succès</p>
+        </mat-dialog-content>
+        <mat-dialog-actions align="end">
+            <button mat-button matDialogClose color="primary">Fermer</button>
+        </mat-dialog-actions>
+    </ng-template>
