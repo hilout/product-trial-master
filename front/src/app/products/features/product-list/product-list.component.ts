@@ -12,6 +12,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { PrimeNGConfig, SelectItem } from 'primeng/api';
 import { PaginatorModule } from 'primeng/paginator';
 import { RatingModule } from 'primeng/rating';
+import { InputTextModule } from 'primeng/inputtext';
 
 const emptyProduct: Product = {
   id: 0,
@@ -35,7 +36,7 @@ const emptyProduct: Product = {
   templateUrl: "./product-list.component.html",
   styleUrls: ["./product-list.component.scss"],
   standalone: true,
-  imports: [DataViewModule, CardModule, ButtonModule, DialogModule, ProductFormComponent, CurrencyPipe, MatPaginator, PaginatorModule, RatingModule]
+  imports: [DataViewModule, CardModule, ButtonModule, DialogModule, ProductFormComponent, CurrencyPipe, MatPaginator, PaginatorModule, RatingModule, InputTextModule]
 })
 export class ProductListComponent implements OnInit {
   private readonly productsService = inject(ProductsService);

@@ -2,7 +2,16 @@
 
 <p-button label="Créer produit" (onClick)="onCreate()" class="block text-center"/>
 <p-dataView #dv [value]="products()"  [paginator]="true" [rows]="2" filterBy="name"
-            [sortField]="sortField" [sortOrder]="sortOrder" >
+            [sortField]="sortField" [sortOrder]="sortOrder" paginatorPosition="top">
+    <ng-template pTemplate="header">
+        <div class="flex flex-column md:flex-row md:justify-content-between">
+            <p-dropdown [options]="sortOptions" [(ngModel)]="sortField" placeholder="Sort By Price" (onChange)="onSortChange($event)" styleClass="mb-2 md:mb-0"></p-dropdown>
+            <span class="p-input-icon-left mb-2 md:mb-0">
+                  <i class="pi pi-search"></i>
+                  <input type="search" pInputText placeholder="Filter by Name" (input)="dv.filter($any($event.target).value, 'contains')" >
+              </span>
+        </div>
+    </ng-template>
     <ng-template pTemplate="list" let-products>
         @for (product of products; track product) {
             <p-card class="block mb-2">
